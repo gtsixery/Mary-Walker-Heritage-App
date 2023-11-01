@@ -40,24 +40,17 @@
 
         </div>
         <script>
-            var slideImg = document.getElementById("slideImg");
+            let slideImg = document.getElementById("slideImg");
 
-            var images = new Array(
-                "images/Vesta.jpg",
-                "images/CityHall.jpg",
-                "images/Mary.jfif",
-                "images/Cemetery.jpg",
-                "images/Bridge.jpg",
-                "images/Museum.jpg"
-                
+            let images = ["images/Vesta.webp",
+                "images/CityHall.webp",
+                "images/Mary.webp",
+                "images/Cemetery.webp",
+                "images/Bridge.webp",
+                "images/Museum.webp"];
 
-        
-
-
-            );
-
-            var len = images.length;
-            var i = 0;
+            let len = images.length;
+            let i = 0;
 
             function slider(){
                 if(i > len-1){
