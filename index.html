@@ -6,51 +6,46 @@
     <body onload="slider()">
         <div class="banner">
             <div class="slider">
-                <img src="images/Vesta2.webp" id="slideImg">
-                
+                <img src="images/" id="slideImg">
+
             </div>
             <div class="overlay">
 
             </div>
             <div class="navbar">
                 <div class="logo">
-                    <img src="images/logo.webp" class="logo">
+                    <img src="images/Logo.png" class="logo">
                 </div>
                 <ul>
-                    <li><a href="#">Learn More</a></li>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="#learn">Learn More</a></li>
+
 
                 </ul>
             </div>
             <div class="content">
                 <h1>THE LIFE OF <br> MARY WALKER</h1>
-                
-                <div>
-                    <button type="button"><span></span> Guided Tour</button>
-                    <br> 
-                    <button type="button"><span></span> Unguided Tour</button>
-                
-                </div>
+
+                <button type="button" onClick="document.getElementById('path').scrollIntoView();"><span></span> Your Journey <br> Starts Here</button>
+
                 <br>
                 <br>
                 <br>
 
-                
+
             </div>
 
         </div>
         <script>
-            let slideImg = document.getElementById("slideImg");
+            var slideImg = document.getElementById("slideImg");
 
-            let images = ["images/Vesta.webp",
+            var images = ["images/Vesta.webp",
                 "images/CityHall.webp",
-                "images/Mary.webp",
                 "images/Cemetery.webp",
                 "images/Bridge.webp",
                 "images/Museum.webp"];
 
-            let len = images.length;
-            let i = 0;
+            var len = images.length;
+            var i = 0;
 
             function slider(){
                 if(i > len-1){
@@ -63,49 +58,45 @@
         </script>
         <section>
             <div class="container reveal">
-                <h2>Step into the past and uncover the fascinating history of Oswego on a journey like no other!</h2>
+                <h2 id="path">Step into the past and uncover the fascinating history of Oswego on a journey like no other!</h2>
             </div>
         </section>
         <section>
             <div class="container reveal">
-                <h2>Option Description</h2>
-                <div class="cards">
-                <div class="text-card">
-                        <h3>Guided</h3>
+                <h2>Choose Your Path!</h2>
+                <div class="cards" >
+                <div class="text-card" >
+                        <h3 class="wiggle"> Follow Her Journey</h3>
                         <p>
-                            Tony and his wife are on a vacation across the Upstate New York area. Tony in specific is enamored with the history of Dr. Mary Walker from Oswego. He wishes to take a tour of spots related to her but is not aware of where to go. He wishes to sign up for a tour but wants to go at his own pace throughout it. 
+                            Immerse yourself in the life of Mary Walker. We've handpicked a series of sites that, together, weaves a rich tapestry of her experiences. Each location builds on the last, creating a seamless narrative that brings her story to life. Let us guide you step by step, and experience the journey as it unfolds. 
                         </p>
                 </div>
                 <div class="text-card">
-                        <h3>Unguided</h3>
+                        <h3 class="wiggle">Free Exploration</h3>
                         <p>
-                            Tony and his wife are on a vacation across the Upstate New York area. Tony in specific is enamored with the history of Dr. Mary Walker from Oswego. He wishes to take a tour of spots related to her but is not aware of where to go. He wishes to sign up for a tour but wants to go at his own pace throughout it. 
+                            Free Exploration lets you choose your own adventure! Simply pick a location and we'll provide you with all the interesting details and history about that place. It's like having your own personal tour guide, but without the hassle. Explore at your own pace and learn something new!
                         </p>
             </div>
+
 
             </div>
             </div>
         </section>
         <section>
             <div class="container reveal">
-                <h2>Learn More</h2>
+                <h2 id="learn">Learn More</h2>
             <div class="cards">
             <div class="text-card">
-                <h3>Title</h3>
+                <h3><a href="https://nyheritage.org/">New York Heritage</a></h3>
                 <p>
-                Tony and his wife are on a vacation across the Upstate New York area. Tony in specific is enamored with the history of Dr. Mary Walker from Oswego. He wishes to take a tour of spots related to her but is not aware of where to go. He wishes to sign up for a tour but wants to go at his own pace throughout it. 
+                    New York Heritage is a platform that hosts and provides access to a wide range of digital collections and cultural heritage materials related to the state of New York.These collections include photographs, manuscripts, historical documents, maps, and more, contributed by cultural institutions throughout New York State.
                 </p>
                     </div>
-            <div class="text-card">
-                        <h3>Title</h3>
-                        <p>
-                            Tony and his wife are on a vacation across the Upstate New York area. Tony in specific is enamored with the history of Dr. Mary Walker from Oswego. He wishes to take a tour of spots related to her but is not aware of where to go. He wishes to sign up for a tour but wants to go at his own pace throughout it. 
-                        </p>
-                    </div>
+
                     <div class="text-card">
-                        <h3>Title</h3>
+                        <h3><a href="https://www.rbhousemuseum.org/">Richard-Bates House</a></h3>
                         <p>
-                            Tony and his wife are on a vacation across the Upstate New York area. Tony in specific is enamored with the history of Dr. Mary Walker from Oswego. He wishes to take a tour of spots related to her but is not aware of where to go. He wishes to sign up for a tour but wants to go at his own pace throughout it. 
+                            Through displays and educational events, the historical Richard-Bates House provides a peek into the lifestyle of a significant and wealthy Oswego family, as well as the people and places in Oswego County. This location is an old Italian villa from the 19th century that would be a beautiful spot to visit.
                         </p>
             </div>
             </div>
@@ -140,13 +131,22 @@
 
         <section2>
             <div class="container2">
-                <h1>Oswego History:</h1>
+                <h1></h1>
                 <p>
-                 Dr. Mary Walker from Oswego. He wishes to take a tour of spots related to her but is not aware of where to go. He wishes to sign up for a tour but wants to go at his own pace throughout it. 
+                 
                 </p>
            
             </div>
         </section2>
+
+        <section3>
+                <div class="scrolldown">
+                    <span2></span2>
+                    <span2></span2>
+                    <span2></span2>
+                </div>
+            
+        </section3>
 
     </body>
 </html>
