@@ -1,40 +1,51 @@
-<html>
-    <head>
-        <title>Oswego History</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Oswego History</title>
+    <link rel="stylesheet" href="style.css">
+</head>
     <body onload="slider()">
+    <nav>
+        <div class="logo">
+            <a href="https://www.oswegohistory.tours/">
+                <img src="images/Logo.jpg" alt="Picture of Mary Walker as logo">
+                <h1>Oswego Tours</h1>
+            </a>
+        </div>
+        <div class="nav-items">
+            <a href="https://www.oswegohistory.tours/">Home</a>
+            <a href="/">About</a>
+            <a href="https://www.rbhousemuseum.org/contact-us/">Contact</a>
+        </div>
+    </nav>
         <div class="banner">
             <div class="slider">
-                <img src="images/" id="slideImg">
-
+                <img src="images/" id="slideImg" alt="Slideshow">
             </div>
-            <div class="overlay">
+            <div class="overlay"></div>
 
-            </div>
-            <div class="navbar">
-                <div class="logo">
-                    <img src="images/Logo.png" class="logo">
-                </div>
-                <ul>
-                    <li><a href="#learn">Learn More</a></li>
-
-
-                </ul>
-            </div>
             <div class="content">
                 <h1>THE LIFE OF <br> MARY WALKER</h1>
 
-                <button type="button" onClick="document.getElementById('path').scrollIntoView();"><span></span> Your Journey <br> Starts Here</button>
+                <button type="button" onClick="document.getElementById('path').scrollIntoView();">
+                    <span>
+
+                    </span>
+                    Your Journey <br> Starts Here
+                </button>
 
                 <br>
                 <br>
                 <br>
-
 
             </div>
 
         </div>
+
         <script>
             var slideImg = document.getElementById("slideImg");
 
