@@ -304,6 +304,10 @@ section .cards .text-card .learn-card a{
         font-size: 40px;
     }
 
+    .scrolldown{
+        display: none;
+    }
+
     .logo h1{ /* hide */
         display: none;
     }
