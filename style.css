@@ -304,7 +304,7 @@ section .cards .text-card .learn-card a{
         font-size: 40px;
     }
 
-    .scrolldown{
+    .scrolldown{ /* added */
         display: none;
     }
 
