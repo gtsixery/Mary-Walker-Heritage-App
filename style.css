@@ -291,6 +291,14 @@ section .cards .text-card .learn-card a{
 
 
 @media (max-width: 900px){
+    .content h1 {
+        font-size: 40px;
+    }
+
+    .logo h1{ /* hide */
+        display: none;
+    }
+
     section h1{
         font-size: 40px;
     }
