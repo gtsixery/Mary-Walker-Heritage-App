@@ -295,7 +295,12 @@ section .cards .text-card .learn-card a{
 
 
 @media (max-width: 900px){
+    nav{
+        justify-content: normal;
+    }
     .content h1 {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans',
+        Arial, sans-serif;
         font-size: 40px;
     }
 
