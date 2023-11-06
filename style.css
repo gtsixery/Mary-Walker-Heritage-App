@@ -269,7 +269,7 @@ section .cards .text-card h3 {
     margin-bottom: 10px;
 }
 
-h3.wiggle a{ /* added this */
+h3.wiggle a{ /* added this here */
     text-decoration: none;
     color: #fff;
 }
