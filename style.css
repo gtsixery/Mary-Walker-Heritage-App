@@ -224,7 +224,11 @@ section:nth-child(4){
 section:nth-child(5){
     color: #fff;
     background-color: #c5ae5a;
+}
 
+section:nth-child(6){
+    color: #fff;
+    background-color: #cbb66a;
 }
 
 section .container{
