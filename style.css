@@ -2,7 +2,9 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Mier B', 'Helvetica Neue', 'Arial, Helvetica', 'sans-serif';
+    /*font-family: 'Mier B', 'Helvetica Neue', 'Arial, Helvetica', 'sans-serif';*/
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans',
+    Arial, sans-serif;
 }
 
 nav{
@@ -12,10 +14,10 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /*padding: calc((100vw - 1300px) / 2);*/
 }
 
 .logo {
+    position: relative; /* newly added */
     float: left;
     width: 100px;
     height: 100px;
@@ -27,13 +29,20 @@ nav{
     font-size: 1.5rem;
     font-weight: bold;
     font-style: normal;
-    padding: 0 2rem;
+    /*padding: 0 2rem;*/
+    position: relative; /* new */
+    z-index: 2; /* new */
+    margin-inline-start: 70px;
+    margin-block-start: -70px;
 }
 
 .logo img {
-    display: block;
+    /*display: block;*/
+    margin-block-start: 10px;
     width: 75%;
     height: auto;
+    position: relative; /* new */
+    z-index: 1; /* new */
 }
 
 .nav-items a{
@@ -116,7 +125,7 @@ nav{
 }
 .content h1{
     font-size: 65px;
-    font-family: "Tiempos Fine Bold", Georgia, serif;
+    font-family: fantasy;
     margin-top: 80px ;
 
 
@@ -241,14 +250,6 @@ padding: 20px;
 box-shadow: 0 4px 8px rgba(0,0,0,0.7);
 }
 
-@keyframes wiggle {
-    0% { transform: rotate(0deg); }
-   80% { transform: rotate(0deg); }
-   85% { transform: rotate(5deg); }
-   95% { transform: rotate(-5deg); }
-  100% { transform: rotate(0deg); }
-}
-
 h3.wiggle {
   display: inline-block;
   text-align: center;
@@ -261,17 +262,25 @@ h3.wiggle:hover {
   text-align: center;
 }
 
-section .cards .text-card h3{
+section .cards .text-card h3 {
     font-size: 30px;
-    font-family: "Tiempos Fine Bold", Georgia, serif;
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
 
-section .cards .text-card h3 a{
+h3.wiggle a{ /* added this here */
+    text-decoration: none;
+    color: #fff;
+}
+
+section .cards .text-card p {
+    line-height: 1.5;
+}
+
+section .cards .text-card .learn-card a{
     font-size: 30px;
-    font-family: "Tiempos Fine Bold", Georgia, serif;
+    /*font-family: "Tiempos Fine Bold", Georgia, serif;*/
     color: #fff;
     text-align: center;
     text-transform: uppercase;
@@ -323,7 +332,6 @@ section2 h1{
     height: 40px;
     
     transform: translateY(-80px) translateX(-50%) rotate(45deg);
-
 }
 
 .scrolldown span2{
@@ -371,7 +379,3 @@ section2 h1{
         opacity: 0;
     }
 }
-
-
-
-
