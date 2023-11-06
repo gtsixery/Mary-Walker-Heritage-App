@@ -295,7 +295,7 @@ section .cards .text-card .learn-card a{
         font-size: 40px;
     }
 
-    .logo h1{
+    .logo h1{ /* hide */
         display: none;
     }
 
