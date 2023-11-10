@@ -297,6 +297,35 @@ img {vertical-align: middle;}
 
 }
 
+.hero5{
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  top: 75%; 
+  left: 5%;
+
+}
+
+.hero8{
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  top: 65%; 
+  left: 5%;
+
+}
+
+.hero9{
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  top: 50%; 
+  left: 5%;
+
+}
+
+
+
 .music{
   width : 70%;
   max-width: 900px;
