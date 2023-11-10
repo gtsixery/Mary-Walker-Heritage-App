@@ -55,46 +55,50 @@
 
   /* footer boxes */
   .box2{
-    width: 1050px;
-    border: 1px solid black;
+    width: 1300px;
+    height: 395px;
+    border: 10px solid black;
     background-color: #000000;
-    bottom: 50px;
+    bottom: 175px;
     color: azure;
-    height: 150px;
-    padding: 10px;
-    position: relative;
-    margin-left: 200px;
+    /*height: 150px;*/
+    padding: 10px 500px 10px 10px;
+    position: absolute;
+    margin-left: 50px;
     text-align: center;
     opacity: 0.5;
+    z-index: -1;
   }
 
   .box3{
-    width: 1050px;
+    width: 1300px;
+    height: 420px;
     border: 1px solid black;
     background-color: #000000;
-    bottom: 20px;
     color: azure;
-    height: 200px;
-    padding: 10px;
+    padding: 10px 500px 10px 10px;
     position: relative;
-    margin-left: 200px;
+    bottom: 500px;
+    margin-left: 50px;
     /* margin-top: 20px; */
     text-align: center;
     opacity: 0.5;
+    z-index: -1;
   }
 
   .box4{
-    width: 1050px;
+    width: 1300px;
     border: 1px solid black;
     background-color: #000000;
-    bottom: 50px;
+    bottom: 485px;
     color: azure;
-    height: 300px;
-    padding: 10px;
+    height: 550px;
+    padding: 10px 500px 10px 10px;
     position: relative;
-    margin-left: 200px;
+    margin-left: 50px;
     text-align: center;
     opacity: 0.5;
+    z-index: -1;
   }
 
   .logo img{
@@ -204,17 +208,31 @@ img {vertical-align: middle;}
 .slideshow-container {
   max-width: 1000px;
   position: relative;
+  left: 400px;
   /* margin-top: 50px; */
   bottom: 40px;
 }
 
+  .dot {
+    height: 15px;
+    width: 15px;
+    margin: 40px 2px;
+    left: 400px;
+    background-color: #f8f8f8;
+    bottom: 70px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    transition: background-color 0.6s ease;
+  }
+
 /* Caption text */
 .text {
-  color: #000000;
+  color: #ffffff;
   font-size: 15px;
   padding: 8px 12px;
   position: absolute;
-  top: 310px;
+  top: 300px;
   align-items: center;
   width: 100%;
   text-align: center;
@@ -230,17 +248,7 @@ img {vertical-align: middle;}
 }
 
 /* The dots/bullets/indicators */
-.dot {
-  height: 15px;
-  width: 15px;
-  margin: 40px 2px;
-  background-color: #bbb;
-  bottom: 40px;
-  border-radius: 50%;
-  display: inline-block;
-  position: relative;
-  transition: background-color 0.6s ease;
-}
+
 
 .active {
   background-color: #717171;
