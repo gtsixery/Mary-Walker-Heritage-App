@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oswego Town Hall</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/wavesurfer.js"></script>
 </head>
 <body>
   <div class="box1">
@@ -58,6 +59,50 @@
             for “impersonating a man.” When asked why she wore men’s clothes, she responded: “I don’t 
             wear men’s clothes; I wear my own clothes.”</p>
     </div>
+    <div class="hero">
+      <div class="music">
+        <div class="track">
+          <img src="img/play.png" alt="play button" id = "playBtn">
+          <div id="waveform">
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    
+
+<script>
+
+var playBtn = document.getElementById('playBtn')
+
+var wavesurfer = WaveSurfer.create({
+  container: '#waveform',
+  waveColor: 'white',
+  progressColor: 'orange',
+  barWidth: 4,
+  responsive: true,
+  height: 90,
+  barRadius: 4
+})
+
+wavesurfer.load('sounds/location1.mp3');
+
+playBtn.onclick = () =>{
+  wavesurfer.playPause();
+  if(playBtn.src.includes("play.png")){
+    playBtn.src = "img/pause.png"
+  }else{
+    playBtn.src = "img/play.png"
+  }
+}
+
+wavesurfer.on('finish', () => {
+  playBtn.src = "img/play.png";
+  wavesurfer.stop;
+})
+
+
+</script>
     <script src="javascript.js"></script>
 </body>
 </html>
