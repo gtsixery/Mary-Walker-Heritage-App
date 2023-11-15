@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+HEAD
  /* header box */
  body{
   background-color: #F7EDCC;
@@ -210,7 +210,7 @@ button{
 
 /* sites slideshow */
 * {box-sizing: border-box;}
-=======
+
   /* header box */
   body{
     background-color: #F7EDCC;
@@ -416,7 +416,7 @@ button{
 *{
   box-sizing: border-box;
 }
->>>>>>> 4a219daf5247a6a98a431e19d68dd2bc56620642
+
 body {font-family: Verdana, sans-serif;}
 .mySlides {display: none;}
 img {vertical-align: middle;}
@@ -477,13 +477,13 @@ animation-duration: 1.5s;
 }
 
 @keyframes fade {
-<<<<<<< HEAD
+
 from {opacity: .4} 
 to {opacity: 1}
-=======
+
   from {opacity: .4}
   to {opacity: 1}
->>>>>>> 4a219daf5247a6a98a431e19d68dd2bc56620642
+
 }
 
 /* On smaller screens, decrease text size */
@@ -548,21 +548,21 @@ left: 5%;
 
 
 .music{
-<<<<<<< HEAD
+
 width : 70%;
 max-width: 900px;
 padding: 30px;
-box-shadow: 0 0 20px rgba(red, 0, 0, 0.4);
+/*box-shadow: 0 0 20px rgba(red, 0, 0, 0.4);*/
 color: white;
 border-radius: 8px;
-=======
+
   width : 70%;
   max-width: 900px;
   padding: 30px;
 
   color: white;
   border-radius: 8px;
->>>>>>> 4a219daf5247a6a98a431e19d68dd2bc56620642
+
 }
 
 .track{
@@ -580,12 +580,10 @@ cursor: pointer;
 }
 
 .track div{
-<<<<<<< HEAD
+
 flex: 1;
 }
-=======
-  flex: 1;
-}
+
 
   @media (max-width: 960px){
     /* header box */
@@ -601,4 +599,4 @@ flex: 1;
       text-align: center;
     }
   }
->>>>>>> 4a219daf5247a6a98a431e19d68dd2bc56620642
+
