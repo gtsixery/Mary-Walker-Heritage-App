@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Locate the user</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .mapboxgl-ctrl-directions { /*to make direction text on white background for clarity */
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .button {
+            position: absolute;
+            bottom: 20px;
+            padding: 20px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 100px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .exit-button {
+            left: 20px;
+            background-color: red;
+            color: white;
+        }
+
+        .finish-button {
+            right: 20px;
+            background-color: deepskyblue;
+            color: white;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .modal-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .modal-buttons button {
+            margin: 0 10px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="map"></div>
+<div id="exitButton" class="button exit-button">Exit</div>
+<div id="finishButton" class="button finish-button">Finish</div>
+
+<script>
+
+    mapboxgl.accessToken = 'pk.eyJ1Ijoib3N3ZWdvdG91cnN3ZWJhcHAiLCJhIjoiY2xuZTU0eTdxMGFlbzJrc2UyNGQ0eXJnNSJ9.1bNTRWmRobVRG96ohJEeOg';
+
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v12', // style URL
+        center: [-76.54379514160124, 43.45085042301986], // starting position
+        zoom: 2 // starting zoom
+    });
+
+    // set the bounds for the map
+    const bounds = [
+            [-78, 41],
+            [-74, 45]
+    ];
+
+    // data for all nine sites
+    const sites = [
+        {
+            name: "Oswego Town Hall with Dr. Mary Walker Statue",
+            confirmationText: "You should see the Oswego Town Hall with Dr. Mary Walker's Statue in front of it.",
+            color: 'purple',
+            lngLat: [-76.53323681368194, 43.415413142383535],
+            redirectLink: "https://oswegohistory.tours/site1"
+
+        },
+        {
+            name: "Town of Oswego Historical Society Museum",
+            confirmationText: "The Oswego Town Historical Society Museum should be in sight.",
+            color: 'purple',
+            lngLat: [-76.53340110021806, 43.415141546532695],
+            redirectLink: "https://oswegohistory.tours/site2"
+        },
+        {
+            name: "Birthplace Marker for Dr. Mary Walker's Home (Destroyed)",
+            confirmationText: "Mary Walker's Birth home is no longer there, but you should see the marker.",
+            color: 'purple',
+            lngLat: [-76.55443023639363, 43.40439195761665],
+            redirectLink: "https://oswegohistory.tours/site3"
+        },
+        {
+            name: "Oswego Town Rural Cemetery",
+            color: 'purple',
+            confirmationText: "Mary Walker's tombstone is there somewhere. If you can't find it, no worries.",
+            lngLat: [-76.55065542947133, 43.425349995889405],
+            redirectLink: "https://oswegohistory.tours/site4"
+        },
+        {
+            name: "Mary Walker Health Center",
+            color: 'purple',
+            confirmationText: "You should see Mary Walker Health Center on the SUNY Oswego campus. Find a good parking spot and view the site information.",
+            lngLat: [-76.54294833267187, 43.4556889142642],
+            redirectLink: "https://oswegohistory.tours/site5"
+        },
+        {
+            name: "Mural of Dr. Mary Walker on Downtown Bookstore Building",
+            color: 'purple',
+            confirmationText: "You should see a mural of Dr. Mary Walker's on the bookstore building. Remember to park in the provided spaces before clicking 'ok'.",
+            lngLat: [-76.51169746190004, 43.45668452411192],
+            redirectLink: "https://oswegohistory.tours/site6"
+        },
+        {
+            name: "City Hall",
+            color: 'purple',
+            confirmationText: "You should see the Oswego City Hall. Town members are friendly 😉, feel free to ask around if unsure.",
+            lngLat: [-76.5112012931721, 43.45540480770897],
+            redirectLink: "https://oswegohistory.tours/site7"
+        },
+        {
+            name: "Fort Ontario",
+            color: 'purple',
+            confirmationText: "Fort Ontario is iconic! You wouldn't miss it if you tried.",
+            lngLat: [-76.50869439651945, 43.46473533950896],
+            redirectLink: "https://oswegohistory.tours/site8"
+        },
+        {
+            name: "Oswego County Historical Society at the Richardson-Bates House Museum",
+            color: 'purple',
+            confirmationText: "If you see a light-pink mansion, you are definitely in the right spot. You can go say 'Hi' if its open!",
+            lngLat: [-76.50372734034784, 43.455487274336924],
+            redirectLink: "https://oswegohistory.tours/site9"
+        }
+    ]
+
+    sites.forEach(({ name, color, lngLat }) => {
+        // create the popup
+        const popup = new mapboxgl.Popup({offset: 25}).setText(name);
+
+        // add marker (testing for now)
+        const marker = new mapboxgl.Marker({
+            color,
+            scale: 0.8
+        })
+                .setLngLat(lngLat)
+                .setPopup(popup)
+                .addTo(map);
+    });
+
+    // Initialize the geolocate control.
+    const geolocate = new mapboxgl.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        trackUserLocation: true,
+        showUserHeading: true
+    });
+
+    // Add the control to the map.
+    map.addControl(geolocate);
+
+    map.on('load', () => {
+        geolocate.trigger();
+    });
+
+    // when an error event occurs.
+    geolocate.on('error', () => {
+        alert('Could not retrieve your location :(');
+    });
+
+    // when an outofmaxbounds event occurs.
+    geolocate.on('outofmaxbounds', () => {
+        alert.log('You are out of bounds!');
+        window.location.href = "https://oswegohistory.tours/";
+    });
+
+    // Create a new Directions object
+    const directions = new MapboxDirections({
+        accessToken: mapboxgl.accessToken,
+        profile: 'mapbox/driving',
+        interactive: false,
+        controls: {
+            inputs: false,
+            instructions: true,
+            profileSwitcher: true,
+            attributionControl: false
+        }
+    });
+
+    // Add the directions control to the map (top-left)
+    map.addControl(directions, 'top-left');
+
+    let efficientRoute;
+
+    if (localStorage.getItem('efficientRoute') === null){ // if null, populate with efficientRoute array
+
+        const userLocation = [-76.5384581932517, 43.45516078249308];
+
+        let startingIndex = 0;
+
+        // Calculate the closest destination
+        let closestDestination = sites[0];
+        let closestDistance = getDistance(userLocation, sites[0].lngLat);
+
+        for (let i = 1; i < sites.length; i++) {
+            const distance = getDistance(userLocation, sites[i].lngLat);
+            if (distance < closestDistance) {
+                closestDestination = sites[i];
+                closestDistance = distance;
+                startingIndex = i;
+            }
+        }
+
+        // user will be at the first location already, so remove the first element
+        efficientRoute = getEfficientRoute(sites, startingIndex).slice(1);
+
+        localStorage.setItem('efficientRoute', JSON.stringify(efficientRoute));
+
+        runMap(efficientRoute[0]);
+
+    }else {
+        efficientRoute = JSON.parse(localStorage.getItem('efficientRoute'));
+
+        runMap(efficientRoute[0]);
+    }
+
+    function runMap(nextSiteIndex){
+
+        let siteIndex = nextSiteIndex;
+
+        // Set the origin and destination (origin updates)
+        geolocate.on('geolocate', function(e) {
+            const userLocation = [e.coords.longitude, e.coords.latitude];
+            directions.setOrigin(userLocation);
+            map.flyTo({
+                center: userLocation,
+                zoom: 12,
+                essential: true
+            });
+            map.setMaxBounds(bounds);
+
+            directions.setDestination(sites[siteIndex].lngLat);
+        });
+    }
+
+    // Haversine formula
+    function getDistance(coord1, coord2) {
+        const lng1 = coord1[0];
+        const lat1 = coord1[1];
+        const lng2 = coord2[0];
+        const lat2 = coord2[1];
+
+        const earthRadiusInKm = 6371;
+        const latitudeInRadians = deg2rad(lat2 - lat1);
+        const longitudeInRadians = deg2rad(lng2 - lng1);
+        const chordLenBtwnCoords =
+                Math.sin(latitudeInRadians / 2) * Math.sin(latitudeInRadians / 2) +
+                Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+                Math.sin(longitudeInRadians / 2) * Math.sin(longitudeInRadians / 2);
+        const angularDistBtwnCoords = 2 * Math.atan2(Math.sqrt(chordLenBtwnCoords), Math.sqrt(1 - chordLenBtwnCoords));
+        return earthRadiusInKm * angularDistBtwnCoords; // distance
+    }
+
+    function deg2rad(deg) {
+        return deg * (Math.PI / 180);
+    }
+
+    function getEfficientRoute(sites, startingPointIndex) {
+        const n = sites.length;
+        const visited = new Array(n).fill(false);
+        const path = [startingPointIndex];
+        visited[startingPointIndex] = true;
+
+        while (path.length < n) {
+            let nearestIndex = -1;
+            let minDistance = Infinity;
+            const lastPoint = sites[path[path.length - 1]].lngLat;
+
+            for (let i = 0; i < n; i++) {
+                if (!visited[i]) {
+                    const distance = getDistance(lastPoint, sites[i].lngLat);
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        nearestIndex = i;
+                    }
+                }
+            }
+
+            path.push(nearestIndex);
+            visited[nearestIndex] = true;
+        }
+
+        path.push(startingPointIndex);
+
+        return path;
+    }
+
+    // Redirect when user exit map
+    const exitButton = document.getElementById('exitButton');
+
+    exitButton.addEventListener('click', () => {
+        window.location.href = 'https://oswegohistory.tours/unguided';
+        localStorage.clear();
+    });
+
+    // Confirm if user has arrived at destination
+    const finishButton = document.getElementById('finishButton');
+
+    finishButton.addEventListener('click', () => {
+
+        let address;
+
+        const url = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + sites[efficientRoute[0]].lngLat[0]
+                + "," + sites[efficientRoute[0]].lngLat[1] + ".json?access_token=" +
+                mapboxgl.accessToken + "&types=address";
+
+        fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    address = data.features[0].place_name;
+                    let confirmationText = sites[efficientRoute[0]].confirmationText;
+
+                    const userConfirmation = confirm(`Are you at ${address}? \n${confirmationText}`);
+                    if (userConfirmation) {
+                        window.location.href = sites[efficientRoute[0]].redirectLink;
+                        if(efficientRoute.length === 1){
+                            localStorage.clear();
+                        }else{
+                            efficientRoute = efficientRoute.slice(1);
+                            localStorage.setItem('efficientRoute', JSON.stringify(efficientRoute));
+                        }
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+    });
+
+</script>
+
+</body>
+</html>
