@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Free Exploration Page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #F7EDCC;
+        }
+
+        .banner {
+
+            background: #717171;
+            display: flex;
+            align-items: center;
+            /*opacity: 0.5;*/
+            padding: 10px;
+        }
+
+        .logo img{
+            position: relative;
+            float: left;
+            padding: 5px;
+            margin-block-start: 10px;
+            width: 100px;
+            height: 100px;
+        }
+
+
+        .hero {
+            /*display: grid;*/
+            padding: 100px;
+            height: 100vh;
+            width: 100vw;
+            margin: 0 auto;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 100px;
+        }
+
+        .circular-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20%;
+            overflow: hidden;
+            width: 150px;
+            height: 150px;
+
+        }
+
+        .circular-button img {
+            width: 190%;
+            height: 190%;
+            object-fit: contain;
+        }
+
+        .circular-button p {
+            margin-top: 10px;
+
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="banner">
+<div class="logo">
+    <a href="index.html"><img src="images/Logo.jpg" alt="Home Button: Portrait of Mary Walker"></a>
+</div>
+<div class="page-title">
+    <h1>Free Exploration</h1>
+    <p>Simply pick a location, and we'll provide you with all the interesting details and history about that place.<br>
+        Explore at your own pace and learn something new!</p>
+</div>
+</div>
+
+<section class="hero">
+<div class = "button-grid">
+
+    <center>
+    <button class="circular-button">
+        <img src="button-images/Oswego Town Hall.webp" alt="Picture of Oswego Town Hall">
+        <p>Oswego Town Hall</p>
+    </button>
+    </center>
+
+    <center>
+    <button class="circular-button">
+        <img src="button-images/Town of Oswego Historical Society.webp" alt="Picture of Oswego Historical Society Museum">
+        <p>Oswego Historical Society Museum</p>
+    </button>
+    </center>
+
+    <center>
+    <button class="circular-button">
+        <img src="button-images/Marker for Birthplace on Bunker HIll Road.webp" alt="Picture of the Birthplace marker for Mary Walker">
+        <p>Mary Walker's Birthplace</p>
+    </button>
+    </center>
+
+    <center>
+    <button class="circular-button">
+        <img src="button-images/entrance.webp" alt="Picture of Oswego Town Cemetery Entrance">
+        <p>Oswego Town Cemetery</p>
+    </button>
+    </center>
+
+    <center>
+    <button class="circular-button">
+        <img src="button-images/HealthCenter.webp" alt="Picture of Mary Walker Health Center">
+        <p>Mary Walker Health Center</p>
+    </button>
+    </center>
+
+    <center>
+    <button class="circular-button">
+        <img src="button-images/Mural on wall of Riversend Bookstore on W. Bridge near W. First.webp" alt="Picture of the Bookstore in Oswego that has the mural of Mary Walker">
+        <p>Mary Walker Mural on Bookstore</p>
+    </button>
+    </center>
+
+    <center>
+    <button class="circular-button">
+        <img src="button-images/CityHall.webp" alt="Picture of Oswego City Hall">
+        <p>Oswego City Hall</p>
+    </button>
+    </center>
+
+    <center>
+    <button class="circular-button">
+        <img src="button-images/fortOntario.webp" alt="Picture of Fort Ontario">
+        <p>Fort Ontario</p>
+    </button>
+    </center>
+
+    <center>
+    <button class="circular-button">
+        <img src="button-images/museum.webp" alt="Picture of the Richardson-Bates House Museum">
+        <p>Richardson-Bates House Museum</p>
+    </button>
+    </center>
+
+</div>
+
+</section>
+
+</body>
+</html>
