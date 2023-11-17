@@ -234,7 +234,11 @@
 
     if (localStorage.getItem('efficientRoute') === null){ // if null, populate with efficientRoute array
 
-        const userLocation = [-76.5384581932517, 43.45516078249308];
+        let userLocation;
+
+        geolocate.on('geolocate', function(e) {
+            userLocation = [e.coords.longitude, e.coords.latitude];
+            });
 
         let startingIndex = 0;
 
