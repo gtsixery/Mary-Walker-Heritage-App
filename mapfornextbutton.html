@@ -283,7 +283,7 @@
         });
     }
 
-    // Haversine formula
+    // Haversine formula (inspired by the function @geekforgeeks)
     function getDistance(coord1, coord2) {
         const lng1 = coord1[0];
         const lat1 = coord1[1];
@@ -302,7 +302,7 @@
     }
 
     function deg2rad(deg) {
-        return deg * (Math.PI / 180);
+        return deg * (Math.PI / 180.0);
     }
 
     function getEfficientRoute(sites, startingPointIndex) {
