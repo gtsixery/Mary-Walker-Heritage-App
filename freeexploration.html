@@ -15,16 +15,17 @@
         }
 
         body {
-            background-color: #F7EDCC;
+            background-color: #000;
+            margin: 0;
         }
 
         .banner {
-
             background: #717171;
             display: flex;
             align-items: center;
-            /*opacity: 0.5;*/
+            opacity: 0.9;
             padding: 10px;
+            color: #fff;
         }
 
         .logo img{
@@ -36,12 +37,23 @@
             height: 100px;
         }
 
+        .page-title {
+            flex: 1;
+            padding-left: 20px;
+            text-align: center;
+        }
+
+        h1, p {
+            color: #fff;
+        }
 
         .hero {
             /*display: grid;*/
-            padding: 100px;
-            height: 100vh;
-            width: 100vw;
+            padding: 50px;
+            text-align: center;
+            background-color: #fff;
+            /*height: 100vh;
+            width: 100vw;*/
             margin: 0 auto;
         }
 
@@ -49,7 +61,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(3, 1fr);
-            gap: 100px;
+            gap: 50px;
         }
 
         /*yes, the buttons are square-like now. They were once circles though*/
@@ -87,6 +99,24 @@
         .button-text {
             margin-top: 10px;
             text-align: center;
+            color: #333;
+        }
+
+        .info-bar {
+            margin-top: 50px;
+            background: black;
+
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+
+        .info-bar a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
         }
 
     </style>
@@ -171,6 +201,12 @@
     </center>
 
 </div>
+
+    <div class="info-bar">
+        <a href="">Visit Us</a>
+        <a href="">Contact Us</a>
+        <a href="">Email Us</a>
+    </div>
 
 </section>
 
