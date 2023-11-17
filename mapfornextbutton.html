@@ -234,33 +234,43 @@
 
     if (localStorage.getItem('efficientRoute') === null){ // if null, populate with efficientRoute array
 
-        let userLocation;
+        function success(e) {
+            const userLocation = [e.coords.longitude, e.coords.latitude];
 
-        geolocate.on('geolocate', function(e) {
-            userLocation = [e.coords.longitude, e.coords.latitude];
-            });
+            let startingIndex = 0;
 
-        let startingIndex = 0;
+            // Calculate the closest destination
+            let closestDestination = sites[0];
+            let closestDistance = getDistance(userLocation, sites[0].lngLat);
 
-        // Calculate the closest destination
-        let closestDestination = sites[0];
-        let closestDistance = getDistance(userLocation, sites[0].lngLat);
-
-        for (let i = 1; i < sites.length; i++) {
-            const distance = getDistance(userLocation, sites[i].lngLat);
-            if (distance < closestDistance) {
-                closestDestination = sites[i];
-                closestDistance = distance;
-                startingIndex = i;
+            for (let i = 1; i < sites.length; i++) {
+                const distance = getDistance(userLocation, sites[i].lngLat);
+                if (distance < closestDistance) {
+                    closestDestination = sites[i];
+                    closestDistance = distance;
+                    startingIndex = i;
+                }
             }
+
+            // user will be at the first location already, so remove the first element
+            efficientRoute = getEfficientRoute(sites, startingIndex).slice(1);
+
+            localStorage.setItem('efficientRoute', JSON.stringify(efficientRoute));
+
+            runMap(efficientRoute[0]);
         }
 
-        // user will be at the first location already, so remove the first element
-        efficientRoute = getEfficientRoute(sites, startingIndex).slice(1);
+        function error(error) {
+            console.error('Could not retrieve location', error);
+            window.location.href = 'freeexploration.html'
+        }
 
-        localStorage.setItem('efficientRoute', JSON.stringify(efficientRoute));
-
-        runMap(efficientRoute[0]);
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(success, error);
+        } else {
+            console.error('Geolocation is not supported by this browser/device.');
+            window.location.href = 'freeexploration.html'
+        }
 
     }else {
         efficientRoute = JSON.parse(localStorage.getItem('efficientRoute'));
