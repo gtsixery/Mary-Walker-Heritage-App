@@ -138,63 +138,63 @@
 <div class = "button-grid">
 
     <center>
-    <button class="circular-button">
+    <button class="circular-button" onclick="setLngLat(0)">
         <img src="button-images/Oswego Town Hall.webp" alt="Picture of Oswego Town Hall">
     </button>
         <div class="button-text">Oswego Town Hall</div>
     </center>
 
     <center>
-    <button class="circular-button">
+    <button class="circular-button" onclick="setLngLat(1)">
         <img src="button-images/Town of Oswego Historical Society.webp" alt="Picture of Oswego Historical Society Museum">
     </button>
         <div class="button-text">Oswego Historical Society Museum</div>
     </center>
 
     <center>
-    <button class="circular-button">
+    <button class="circular-button" onclick="setLngLat(2)">
         <img src="button-images/Marker for Birthplace on Bunker HIll Road.webp" alt="Picture of the Birthplace marker for Mary Walker">
     </button>
         <div class="button-text">Mary Walker's Birthplace</div>
     </center>
 
     <center>
-    <button class="circular-button">
+    <button class="circular-button" onclick="setLngLat(3)">
         <img src="button-images/entrance.webp" alt="Picture of Oswego Town Cemetery Entrance">
     </button>
         <div class="button-text">Oswego Town Cemetery</div>
     </center>
 
     <center>
-    <button class="circular-button">
+    <button class="circular-button" onclick="setLngLat(4)">
         <img src="button-images/HealthCenter.webp" alt="Picture of Mary Walker Health Center">
     </button>
         <div class="button-text">Mary Walker Health Center</div>
     </center>
 
     <center>
-    <button class="circular-button">
+    <button class="circular-button" onclick="setLngLat(5)">
         <img src="button-images/Mural on wall of Riversend Bookstore on W. Bridge near W. First.webp" alt="Picture of the Bookstore in Oswego that has the mural of Mary Walker">
     </button>
         <div class="button-text">Mary Walker Mural on Bookstore</div>
     </center>
 
     <center>
-    <button class="circular-button">
+    <button class="circular-button" onclick="setLngLat(6)">
         <img src="button-images/CityHall.webp" alt="Picture of Oswego City Hall">
     </button>
         <div class="button-text">Oswego City Hall</div>
     </center>
 
     <center>
-    <button class="circular-button">
+    <button class="circular-button" onclick="setLngLat(7)">
         <img src="button-images/fortOntario.webp" alt="Picture of Fort Ontario">
     </button>
         <div class="button-text">Fort Ontario</div>
     </center>
 
     <center>
-    <button class="circular-button">
+    <button class="circular-button" onclick="setLngLat(8)">
         <img src="button-images/museum.webp" alt="Picture of the Richardson-Bates House Museum">
     </button>
         <div class="button-text">Richardson-Bates House Museum</div>
@@ -211,7 +211,11 @@
 </section>
 
 <script>
-
+function setLngLat(index) {
+    localStorage.clear();
+    localStorage.setItem('index', JSON.stringify(index));
+    window.location.href = 'mapforsiteselection.html';
+}
 </script>
 
 </body>
