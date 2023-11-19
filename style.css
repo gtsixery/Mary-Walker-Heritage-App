@@ -297,9 +297,7 @@ section .cards .text-card .learn-card a{
 
 
 @media (max-width: 900px){
-    nav{
-        justify-content: normal;
-    }
+
     .content h1 {
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans',
         Arial, sans-serif;
@@ -310,16 +308,44 @@ section .cards .text-card .learn-card a{
         display: none;
     }
 
-    .logo h1{ /* hide */
-        display: none;
-    }
-
     section h1{
         font-size: 60px;
     }
 
     section .cards{
         flex-direction: column;
+    }
+}
+
+@media (max-width: 500px){
+    .nav-items a {
+        font-size: small;
+    }
+
+    .logo h1{
+        display: none;
+    }
+
+    section .cards{
+        width: 350px;
+    }
+}
+
+@media (max-width: 300px){
+    .nav-items a {
+        font-size: small;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    section .cards{
+        width: 260px;
+    }
+
+    section h2{
+        font-size: 20px;
     }
 }
 
