@@ -119,6 +119,28 @@
             text-decoration: none;
         }
 
+        @media (max-width: 800px){ /* better view on devices <= 800px width */
+            .button-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+            }
+
+            .circular-button {
+                width: 130px;
+                height: 130px;
+            }
+
+            .logo img{
+                width: 90px;
+                height: 90px;
+            }
+
+            p{
+               font-size: 65%;
+            }
+
+        }
+
     </style>
 </head>
 <body>
