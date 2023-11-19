@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Locate the user</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .banner2{
+            width: 180px;
+            background-color: #DCCD99;
+            position: relative;
+            overflow: hidden;
+            overflow-y: scroll;
+        }
+
+        .sitesScroll{
+            position: relative;
+            display: flex;
+            flex-direction:column;
+            margin-left: 10px;
+            gap: 70px;
+        }
+
+        .sitesScroll img{
+            border-radius: 50%;
+            position: relative;
+            margin-right: 100px;
+            width: 150px;
+            height: 150px;
+        }
+
+        .logo img{
+            width: 100px;
+            height: 100px;
+            position: relative;
+            float: right;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            margin-left: 180px; /* because of the side-bar on the page */
+        }
+
+        .mapboxgl-ctrl-directions { /*to make direction text on white background for clarity */
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .button {
+            position: absolute;
+            bottom: 20px;
+            padding: 20px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 100px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .exit-button {
+            left: 200px;
+            background-color: red;
+            color: white;
+        }
+
+        .finish-button {
+            right: 20px;
+            background-color: deepskyblue;
+            color: white;
+        }
+
+        @media (max-width: 540px){
+
+            .mapboxgl-ctrl-directions.mapboxgl-ctrl {
+                background-color: #fefefe;
+                line-height: 140%;
+                font-size: 60%;
+            }
+
+            .banner2{
+                width: 90px;
+            }
+
+            .sitesScroll {
+                margin-left: 5px;
+            }
+
+            .sitesScroll img{
+                width: 75px;
+                height: 75px;
+            }
+
+            #map {
+                margin-left: 90px;
+            }
+
+            .logo img{
+                width: 50px;
+                height: 50px;
+            }
+
+            .exit-button {
+                left: 110px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div id="map"></div>
+<div id="exitButton" class="button exit-button">Leave</div>
+<div id="finishButton" class="button finish-button">Arrived</div>
+
+<div class="logo">
+    <a href="index.html"><img src="images/Logo.jpg" ></a>
+</div>
+
+<div class="banner2" id="banner2">
+
+    <div class="sitesScroll">
+        <a href="followherjourney.html" onclick="setIndex(0)"><img src="button-images/Oswego Town Hall.webp" ></a>
+        <a href="followherjourney.html" onclick="setIndex(1)"><img src="button-images/Town of Oswego Historical Society.webp"></a>
+        <a href="followherjourney.html" onclick="setIndex(2)"><img src="button-images/Marker for Birthplace on Bunker HIll Road.webp"></a>
+        <a href="followherjourney.html" onclick="setIndex(3)"><img src="button-images/entrance.webp"></a>
+        <a href="followherjourney.html" onclick="setIndex(4)"><img src="button-images/HealthCenter.webp"></a>
+        <a href="followherjourney.html" onclick="setIndex(5)"><img src="button-images/Mural on wall of Riversend Bookstore on W. Bridge near W. First.webp"></a>
+        <a href="followherjourney.html" onclick="setIndex(6)"><img src="button-images/CityHall.webp"></a>
+        <a href="followherjourney.html" onclick="setIndex(7)"><img src="button-images/fortOntario.webp"></a>
+        <a href="followherjourney.html" onclick="setIndex(8)"><img src="button-images/museum.webp"></a>
+    </div>
+
+</div>
+
+<script>
+
+    function setIndex(index){
+        localStorage.setItem('index', JSON.stringify(index));
+    }
+
+    // Function to ensure banner height is dynamic across devices
+    function setBannerHeight() {
+        var bannerHeight = window.innerHeight;
+        document.getElementById('banner2').style.height = bannerHeight + 'px';
+    }
+    window.addEventListener('load', setBannerHeight);
+    window.addEventListener('resize', setBannerHeight);
+
+    mapboxgl.accessToken = 'pk.eyJ1Ijoib3N3ZWdvdG91cnN3ZWJhcHAiLCJhIjoiY2xuZTU0eTdxMGFlbzJrc2UyNGQ0eXJnNSJ9.1bNTRWmRobVRG96ohJEeOg';
+
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v12', // style URL
+        center: [-76.54379514160124, 43.45085042301986], // starting position (SUNY Oswego)
+        zoom: 2 // starting zoom
+    });
+
+    // set the bounds for the map
+    const bounds = [
+        [-78, 41],
+        [-74, 45]
+    ];
+
+    // data for all nine sites
+    const sites = [
+        {
+            name: "Oswego Town Hall with Dr. Mary Walker Statue",
+            confirmationText: "You should see the Oswego Town Hall with Dr. Mary Walker's Statue in front of it.",
+            color: 'purple',
+            lngLat: [-76.53323681368194, 43.415413142383535],
+            redirectLink: 'site1.html'
+
+        },
+        {
+            name: "Town of Oswego Historical Society Museum",
+            confirmationText: "The Oswego Town Historical Society Museum should be in sight.",
+            color: 'purple',
+            lngLat: [-76.53340110021806, 43.415141546532695],
+            redirectLink: 'site2.html'
+        },
+        {
+            name: "Birthplace Marker for Dr. Mary Walker's Home (Destroyed)",
+            confirmationText: "Mary Walker's Birth home is no longer there, but you should see the marker.",
+            color: 'purple',
+            lngLat: [-76.55443023639363, 43.40439195761665],
+            redirectLink: 'site3.html'
+        },
+        {
+            name: "Oswego Town Rural Cemetery",
+            color: 'purple',
+            confirmationText: "Mary Walker's tombstone is there somewhere. If you can't find it, no worries.",
+            lngLat: [-76.55065542947133, 43.425349995889405],
+            redirectLink: 'site4.html'
+        },
+        {
+            name: "Mary Walker Health Center",
+            color: 'purple',
+            confirmationText: "You should see Mary Walker Health Center on the SUNY Oswego campus. Find a good parking spot and view the site information.",
+            lngLat: [-76.54294833267187, 43.4556889142642],
+            redirectLink: 'site5.html'
+        },
+        {
+            name: "Mural of Dr. Mary Walker on Downtown Bookstore Building",
+            color: 'purple',
+            confirmationText: "You should see a mural of Dr. Mary Walker's on the bookstore building. Remember to park in the provided spaces before clicking 'ok'.",
+            lngLat: [-76.51169746190004, 43.45668452411192],
+            redirectLink: 'site6.html'
+        },
+        {
+            name: "City Hall",
+            color: 'purple',
+            confirmationText: "You should see the Oswego City Hall. Town members are friendly 😉, feel free to ask around if unsure.",
+            lngLat: [-76.5112012931721, 43.45540480770897],
+            redirectLink: 'site7.html'
+        },
+        {
+            name: "Fort Ontario",
+            color: 'purple',
+            confirmationText: "Fort Ontario is iconic! You wouldn't miss it if you tried.",
+            lngLat: [-76.50869439651945, 43.46473533950896],
+            redirectLink: 'site8.html'
+        },
+        {
+            name: "Oswego County Historical Society at the Richardson-Bates House Museum",
+            color: 'purple',
+            confirmationText: "If you see a light-pink mansion, you are definitely in the right spot. You can go say 'Hi' if its open!",
+            lngLat: [-76.50372734034784, 43.455487274336924],
+            redirectLink: 'site9.html'
+        }
+    ]
+
+    sites.forEach(({ name, color, lngLat }) => {
+        // create the popup
+        const popup = new mapboxgl.Popup({offset: 25}).setText(name);
+
+        // add marker (testing for now)
+        const marker = new mapboxgl.Marker({
+            color,
+            scale: 0.8
+        })
+                .setLngLat(lngLat)
+                .setPopup(popup)
+                .addTo(map);
+    });
+
+    // Initialize the geolocate control.
+    const geolocate = new mapboxgl.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        trackUserLocation: true,
+        showUserHeading: true
+    });
+
+    // Add the control to the map.
+    map.addControl(geolocate);
+
+    map.on('load', () => {
+        geolocate.trigger();
+    });
+
+    // when an error event occurs.
+    geolocate.on('error', () => {
+        alert('Could not retrieve your location :(');
+    });
+
+    // when an outofmaxbounds event occurs.
+    geolocate.on('outofmaxbounds', () => {
+        alert.log('You are out of bounds!');
+        window.location.href = "index.html";
+    });
+
+    // Create a new Directions object
+    const directions = new MapboxDirections({
+        accessToken: mapboxgl.accessToken,
+        profile: 'mapbox/driving',
+        interactive: false,
+        controls: {
+            inputs: false,
+            instructions: true,
+            profileSwitcher: true,
+            attributionControl: false
+        }
+    });
+
+    // Add the directions control to the map (top-left)
+    map.addControl(directions, 'top-left');
+
+    // get the index of the selected site from local storage
+    let siteIndex = JSON.parse(localStorage.getItem('index'));
+
+    geolocate.on('geolocate', function(e) {
+        const userLocation = [e.coords.longitude, e.coords.latitude];
+        directions.setOrigin(userLocation);
+        map.flyTo({
+            center: userLocation,
+            zoom: 12,
+            essential: true
+        });
+        map.setMaxBounds(bounds);
+
+        directions.setDestination(sites[siteIndex].lngLat);
+    });
+
+    // Redirect when user exit map
+    const exitButton = document.getElementById('exitButton');
+
+    exitButton.addEventListener('click', () => {
+        window.location.href = 'index.html';
+        localStorage.clear();
+    });
+
+    // Confirm if user has arrived at destination
+    const finishButton = document.getElementById('finishButton');
+
+    finishButton.addEventListener('click', () => {
+
+        let address;
+
+        const url = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + sites[siteIndex].lngLat[0]
+                + "," + sites[siteIndex].lngLat[1] + ".json?access_token=" +
+                mapboxgl.accessToken + "&types=address";
+
+        fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    address = data.features[0].place_name;
+                    let confirmationText = sites[siteIndex].confirmationText;
+
+                    const userConfirmation = confirm(`Are you at ${address}? \n${confirmationText}`);
+                    if (userConfirmation) {
+                        window.location.href = sites[siteIndex].redirectLink;
+                        localStorage.clear();
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+    });
+
+</script>
+
+
+</body>
+</html>
