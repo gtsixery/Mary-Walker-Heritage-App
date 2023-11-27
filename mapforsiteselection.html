@@ -32,17 +32,17 @@
 
         .button {
             position: absolute;
-            bottom: 20px;
+            bottom: 40px;
             padding: 20px;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            font-size: 18px;
+            font-size: 20px;
             cursor: pointer;
-            border-radius: 100px;
+            border-radius: 150px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .exit-button {
-            left: 20px;
+            right: 150px;
             background-color: red;
             color: white;
         }
@@ -54,12 +54,23 @@
         }
 
 
-        @media (max-width: 420px){
+        @media (max-width: 600px){
             .mapboxgl-ctrl-directions.mapboxgl-ctrl {
                 background-color: #fefefe;
                 line-height: 140%;
                 font-size: 60%;
+            }
 
+            .button {
+                position: absolute;
+                bottom: 20px;
+                font-size: 18px;
+                border-radius: 100px;
+            }
+
+            .exit-button {
+                left: 20px;
+                right: unset;
             }
         }
 
@@ -68,8 +79,8 @@
 </head>
 <body>
 <div id="map"></div>
-<div id="exitButton" class="button exit-button">Exit</div>
-<div id="finishButton" class="button finish-button">Finish</div>
+<div id="exitButton" class="button exit-button">Leave</div>
+<div id="finishButton" class="button finish-button">Arrived</div>
 
 <script>
 
