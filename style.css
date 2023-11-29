@@ -504,3 +504,12 @@ footer{
     opacity: .4;
     font-weight: 200;
 }
+
+.footer-bottom a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer-bottom a:hover{
+    color: blue;
+}
