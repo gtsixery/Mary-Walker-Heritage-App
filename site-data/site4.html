@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Burial Place of Mary Walker</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <script src="https://unpkg.com/wavesurfer.js"></script>
 </head>
 <body>
 
   <div class="box1">
     <div class="logo2">
-      <a href="index.html"><img src="images/Logo.jpg" ></a>
+      <a href="../index.html"><img src="../images/Logo.jpg" ></a>
   </div>
   </div>
 
@@ -23,19 +23,19 @@
     
     <div class="mySlides fade">
 
-      <img src="img/site4/entrance.JPG" height="300px" width="225px">
+      <img src="../img/site4/entrance.JPG" height="300px" width="225px">
       <div class="text">Oswego Historical Society</div>
     </div>
     
     <div class="mySlides fade">
 
-      <img src="img/site4/Rural Cemetery Walker family plot.JPG" height="300px" width="400px" >
+      <img src="../img/site4/Rural%20Cemetery%20Walker%20family%20plot.JPG" height="300px" width="400px" >
       <div class="text">Walker Family Cemetary </div>
     </div>
 
     <div class="mySlides fade">
 
-        <img src="img/site4/Walker Headstone.JPG" height="300px" width="322px">
+        <img src="../img/site4/Walker%20Headstone.JPG" height="300px" width="322px">
         <div class="text">Walker Headstone</div>
       </div>
     
@@ -68,18 +68,18 @@
             
             </p>
     </div>
-  <button id="stopButton" onclick="localStorage.clear(); location.href='freeexploration.html'">
-      <img src="img/stop.png">
+  <button id="stopButton" onclick="localStorage.clear(); location.href='../freeexploration.html'">
+      <img src="../img/stop.png">
   </button>
 
-  <button id="nextButton" onclick="location.href='mapfornextbutton.html'">
-      <img src="img/nextButton.png">
+  <button id="nextButton" onclick="location.href='../mapfornextbutton.html'">
+      <img src="../img/nextButton.png">
   </button>
 
     <div class="hero">
       <div class="music">
         <div class="track">
-          <img src="img/play.png" alt="play button" id = "playBtn">
+          <img src="../img/play.png" alt="play button" id = "playBtn">
           <div id="waveform">
           </div>
         </div>
@@ -102,24 +102,24 @@ var wavesurfer = WaveSurfer.create({
   barRadius: 4
 })
 
-wavesurfer.load('sounds/location4.mp3');
+wavesurfer.load('../sounds/location4.mp3');
 
 playBtn.onclick = () =>{
   wavesurfer.playPause();
   if(playBtn.src.includes("play.png")){
-    playBtn.src = "img/pause.png"
+    playBtn.src = "../img/pause.png"
   }else{
-    playBtn.src = "img/play.png"
+    playBtn.src = "../img/play.png"
   }
 }
 
 wavesurfer.on('finish', () => {
-  playBtn.src = "img/play.png";
+  playBtn.src = "../img/play.png";
   wavesurfer.stop;
 })
 
 
 </script>
-    <script src="javascript.js"></script>
+    <script src="../javascript.js"></script>
 </body>
 </html>

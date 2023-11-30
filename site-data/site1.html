@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oswego Town Hall</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <script src="https://unpkg.com/wavesurfer.js"></script>
 </head>
 <body>
   <div class="box1">
     <div class="logo2">
-      <a href="index.html"><img src="images/Logo.jpg" ></a>
+      <a href="../index.html"><img src="../images/Logo.jpg" ></a>
   </div>
   </div>
 
@@ -22,13 +22,13 @@
     
     <div class="mySlides fade">
 
-      <img src="img/site1/Oswego Town Hall.JPG" height="300px" width="400px">
+      <img src="../img/site1/Oswego%20Town%20Hall.JPG" height="300px" width="400px">
       <div class="text">Oswego Town Hall</div>
     </div>
     
     <div class="mySlides fade">
 
-      <img src="img/site1/Statue with podium.JPG" height="300px" width="225px">
+      <img src="../img/site1/Statue%20with%20podium.JPG" height="300px" width="225px">
       <div class="text">Statue with Podium</div>
     </div>
 
@@ -60,18 +60,18 @@
             wear men’s clothes; I wear my own clothes.”</p>
     </div>
 
-  <button id="stopButton" onclick="localStorage.clear(); location.href='freeexploration.html'">
-      <img src="img/stop.png">
+  <button id="stopButton" onclick="localStorage.clear(); location.href='../freeexploration.html'">
+      <img src="../img/stop.png" height="128" width="128">
   </button>
 
-  <button id="nextButton" onclick="location.href='mapfornextbutton.html'">
-      <img src="img/nextButton.png">
+  <button id="nextButton" onclick="location.href='../mapfornextbutton.html'">
+      <img src="../img/nextButton.png" height="128" width="128">
   </button>
 
     <div class="hero">
       <div class="music">
         <div class="track">
-          <img src="img/play.png" alt="play button" id = "playBtn">
+          <img src="../img/play.png" alt="play button" id = "playBtn">
           <div id="waveform">
           </div>
         </div>
@@ -93,14 +93,14 @@ var wavesurfer = WaveSurfer.create({
   barRadius: 4
 })
 
-wavesurfer.load('sounds/location1.mp3');
+wavesurfer.load('../sounds/location1.mp3');
 
 playBtn.onclick = () => {
   wavesurfer.playPause();
   if(playBtn.src.includes("play.png")){
-    playBtn.src = "img/pause.png"
+    playBtn.src = "../img/pause.png"
   }else{
-    playBtn.src = "img/play.png"
+    playBtn.src = "../img/play.png"
   }
 }
 
@@ -111,6 +111,6 @@ wavesurfer.on('finish', () => {
 
 
 </script>
-    <script src="javascript.js"></script>
+    <script src="../javascript.js"></script>
 </body>
 </html>
