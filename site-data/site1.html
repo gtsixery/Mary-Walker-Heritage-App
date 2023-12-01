@@ -1,110 +1,125 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Oswego Town Hall</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="site-style.css">
     <script src="https://unpkg.com/wavesurfer.js"></script>
 </head>
 <body>
-  <div class="box1">
-    <div class="logo2">
-      <a href="../index.html"><img src="../images/Logo.jpg" ></a>
-  </div>
-  </div>
-
- <center> <h1 class="sites">Oswego Town Hall</h1> </center>
-
-  <center>
-    <div class="slideshow-container">
-    
-    <div class="mySlides fade">
-
-      <img src="../img/site1/Oswego%20Town%20Hall.JPG" height="300px" width="400px">
-      <div class="text">Oswego Town Hall</div>
-    </div>
-    
-    <div class="mySlides fade">
-
-      <img src="../img/site1/Statue%20with%20podium.JPG" height="300px" width="225px">
-      <div class="text">Statue with Podium</div>
-    </div>
-
-    </div>
-  </center>
-    <br>
-
-  <div style="text-align:center">
-      <button class ="button" onclick="changeSlide(0)" type="button">
-          <span class="dot"></span>
-      </button>
-      <button class ="button" onclick="changeSlide(1)" type="button">
-          <span class="dot"></span>
-      </button>
-  </div>
-    
-    <!-- <img src="/img/site1/Oswego Town Hall.JPG" alt="" height="300px" width="300px"> -->
-    
-
-    <div class="box2">
-        <p>The larger-than-life-sized bronze statue of Dr Mary Walker is in front of the Town Hall of the Town of Oswego where she was born and died. The statue of Walker shows her dressed as she was during the war - a short dress over pants. She is wearing and pointing to her Medal of Honor. On the ground near the lectern is her medical bag. The lectern shows the medical symbol, a biography and a quote from Walker. On the lectern lies a copy of her book, “Hit,” and a quill for writing. The diminutive Mary Walker was less than five foot tall, but the six-foot-tall statue emphasized how she looms large in history. The lectern was added by artist Sharon BuMann who thought it was needed to show how Walker was never shy in speaking out for what she believed and discussing important issues across the globe.
-          One of Walker’s quotes is inscribed on the side of the lectern: “I have got to die before people will know who I am and what I have done. It is a shame that people who lead reforms in this world are not appreciated until after they are dead; then the world pays its tributes.”
-          Dr. Mary Walker tried to vote in an Oswego Town election in 1871, long before women were granted the right to vote, stating she believed the U.S. Constitution afforded that right to everyone regardless of gender. She died before the 19th Amendment gave that right to women.</p>
-    </div>
-
-  <button id="stopButton" onclick="localStorage.clear(); location.href='../freeexploration.html'">
-      <img src="../img/stop.png" height="128" width="128">
-  </button>
-
-  <button id="nextButton" onclick="location.href='../mapfornextbutton.html'">
-      <img src="../img/nextButton.png" height="128" width="128">
-  </button>
-
-    <div class="hero">
-      <div class="music">
-        <div class="track">
-          <img src="../img/play.png" alt="play button" id = "playBtn">
-          <div id="waveform">
-          </div>
+    <div class="header">
+        <div class="logo">
+            <a href="../index.html"><img src="../images/Logo.jpg"  alt="Logo"></a>
         </div>
-      </div>
-      </div>
+        <div class="site-name">
+            <h1>Oswego Town Hall</h1>
+        </div>
+    </div>
 
+    <div class="content">
+        <div class="inner-content">
+            <div class="text-and-slideshow">
+                <div class="text">
+                    <p>The larger-than-life-sized bronze statue of Dr Mary Walker is in front of the Town Hall of the Town of Oswego where she was born and died. The statue of Walker shows her dressed as she was during the war - a short dress over pants. She is wearing and pointing to her Medal of Honor. On the ground near the lectern is her medical bag. The lectern shows the medical symbol, a biography and a quote from Walker. On the lectern lies a copy of her book, “Hit,” and a quill for writing. The diminutive Mary Walker was less than five foot tall, but the six-foot-tall statue emphasized how she looms large in history. The lectern was added by artist Sharon BuMann who thought it was needed to show how Walker was never shy in speaking out for what she believed and discussing important issues across the globe.
+                        One of Walker’s quotes is inscribed on the side of the lectern: “I have got to die before people will know who I am and what I have done. It is a shame that people who lead reforms in this world are not appreciated until after they are dead; then the world pays its tributes.”
+                        Dr. Mary Walker tried to vote in an Oswego Town election in 1871, long before women were granted the right to vote, stating she believed the U.S. Constitution afforded that right to everyone regardless of gender. She died before the 19th Amendment gave that right to women.</p>
+                </div>
+                <center>
+                <div class="slideshow">
 
-<script>
+                    <div class="mySlides">
+                        <img src="../img/site1/Oswego%20Town%20Hall.JPG" height="300" width="400">
+                        <div class="text">Oswego Town Hall</div>
+                    </div>
+                    <div class="mySlides">
+                        <img src="../img/site1/Statue%20with%20podium.JPG" height="300" width="225">
+                        <div class="text">Statue with Podium</div>
+                    </div>
 
-var playBtn = document.getElementById('playBtn')
+                    <div>
+                        <button class ="button" onclick="changeSlide(0)" type="button">
+                            <span class="dot"></span>
+                        </button>
+                        <button class ="button" onclick="changeSlide(1)" type="button">
+                            <span class="dot"></span>
+                        </button>
+                    </div>
 
-var wavesurfer = WaveSurfer.create({
-  container: '#waveform',
-  waveColor: 'white',
-  progressColor: 'orange',
-  barWidth: 4,
-  responsive: true,
-  height: 90,
-  barRadius: 4
-})
+                </div>
+                </center>
+            </div>
+            <div class="controls">
+                <a href="#" id="stopButton">
+                    <img src="../img/stop.png" height="80" width="80" alt="Stop button">
+                </a>
 
-wavesurfer.load('../sounds/location1.mp3');
+                <center>
+                <div class="hero">
+                    <div class="music">
+                        <div class="track">
+                            <img src="../img/play.png" alt="play button" id = "playBtn">
+                            <div id="waveform">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </center>
 
-playBtn.onclick = () => {
-  wavesurfer.playPause();
-  if(playBtn.src.includes("play.png")){
-    playBtn.src = "../img/pause.png"
-  }else{
-    playBtn.src = "../img/play.png"
-  }
-}
+                <a onclick="checkSiteOptionForNext()" id="nextButton">
+                    <img src="../img/nextButton.png" height="90" width="90" alt="Next button">
+                </a>
 
-wavesurfer.on('finish', () => {
-  playBtn.src = "img/play.png";
-  wavesurfer.stop;
-})
+            </div>
+        </div>
 
+        <button id="moreinfoButton" onclick="location.href='https://townofoswego.com/dr-walker/'">
+        More Info
+        </button>
 
-</script>
+    </div>
     <script src="../javascript.js"></script>
+    <script>
+        var playBtn = document.getElementById('playBtn')
+
+        var wavesurfer = WaveSurfer.create({
+            container: '#waveform',
+            waveColor: 'white',
+            progressColor: 'orange',
+            barWidth: 4,
+            responsive: true,
+            height: 90,
+            barRadius: 4
+        })
+
+        wavesurfer.load('../sounds/location1.mp3');
+
+        playBtn.onclick = () => {
+            wavesurfer.playPause();
+            if(playBtn.src.includes("play.png")){
+                playBtn.src = "../img/pause.png"
+            }else{
+                playBtn.src = "../img/play.png"
+            }
+        }
+
+        wavesurfer.on('finish', () => {
+            playBtn.src = "img/play.png";
+            wavesurfer.stop;
+        })
+
+        function checkSiteOptionForNext(){
+            if (localStorage.getItem('followherjourney') === 'true') {
+                localStorage.setItem('index', '1');
+                window.location.href = "../followherjourney.html"
+            } else {
+                window.location.href = "../mapfornextbutton.html"
+            }
+        }
+
+
+    </script>
 </body>
 </html>
