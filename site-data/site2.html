@@ -1,119 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Town of Oswego Historical Society</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="site-style.css">
     <script src="https://unpkg.com/wavesurfer.js"></script>
 </head>
 <body>
-
-    <div class="box1">
-      <div class="logo2">
-        <a href="../index.html"><img src="../images/Logo.jpg" ></a>
+<div class="header">
+    <div class="logo">
+        <a href="../index.html"><img src="../images/Logo.jpg"  alt="Logo"></a>
     </div>
+    <div class="site-name">
+        <h1>Town of Oswego Historical Society</h1>
     </div>
+</div>
 
-   <center> <h1 class="sites">Town of Oswego Historical Society</h1> </center>
-  
-    <center>
-    <div class="slideshow-container">
-    
-    <div class="mySlides fade">
+<div class="content">
+    <div class="inner-content">
+        <div class="text-and-slideshow">
+            <div class="text">
+                <p>Located in a former Methodist church, the Town of Oswego Historical
+                    Society and Museum has many artifacts of Dr. Mary Walker such as photos
+                    and letters, and many of her family's items, including her father’s
+                    journal, mother’s portrait and sisters’ letters. Other interesting artifacts
+                    include her invitation to President Ulysses S. Grant's first inaugural ball, where she
+                    sat with Generals Thomas and Sherman, a bible that she purchased from the Lacy mansion in
+                    Virginia when she was serving in the hospital there and a medal given posthumously by the
+                    National Women’s Hall of Fame in Seneca Falls, NY. Although Mary was never associated with
+                    any particular church, she would have visited here, and the minister of this church officiated
+                    at her funeral. Open by appointment by calling the Town Historian George DeMass. See the Town
+                    of Oswego website for more information.</p>
+            </div>
+            <center>
+                <div class="slideshow">
 
-      <img src="../img/site2/Town%20of%20Oswego%20Historical%20Society.JPG" height="300px" width="225px" >
-      <div class="text">Oswego Historical Society</div>
-    </div>
-    
-    <div class="mySlides fade">
+                    <div class="mySlides">
+                        <img src="../img/site2/Town%20of%20Oswego%20Historical%20Society.JPG" height="300" width="225">
+                        <div class="text">Oswego Historical Society</div>
+                    </div>
+                    <div class="mySlides">
+                        <img src="../img/site2/Walker%20case.JPG" height="300" width="225">
+                        <div class="text">Walker case</div>
+                    </div>
 
-      <img src="../img/site2/Walker%20case.JPG" height="300px" width="225px" >
-      <div class="text">Walker case</div>
-    </div>
-    
-    </div>
-  </center>
-    <br>
+                    <div>
+                        <button class ="button" onclick="changeSlide(0)" type="button">
+                            <span class="dot"></span>
+                        </button>
+                        <button class ="button" onclick="changeSlide(1)" type="button">
+                            <span class="dot"></span>
+                        </button>
+                    </div>
 
-    <div style="text-align:center">
-        <button class ="button" onclick="changeSlide(0)" type="button">
-            <span class="dot"></span>
-        </button>
-        <button class ="button" onclick="changeSlide(1)" type="button">
-            <span class="dot"></span>
-        </button>
-
-
-    </div>
-    
-
-    <div class="box2">
-        <p>Located in a former Methodist church, the Town of Oswego Historical 
-            Society and Museum has many artifacts of Dr. Mary Walker such as photos 
-            and letters, and many of her family's items, including her father’s 
-            journal, mother’s portrait and sisters’ letters. Other interesting artifacts 
-            include her invitation to President Ulysses S. Grant's first inaugural ball, where she 
-            sat with Generals Thomas and Sherman, a bible that she purchased from the Lacy mansion in 
-            Virginia when she was serving in the hospital there and a medal given posthumously by the 
-            National Women’s Hall of Fame in Seneca Falls, NY. Although Mary was never associated with 
-            any particular church, she would have visited here, and the minister of this church officiated 
-            at her funeral. Open by appointment by calling the Town Historian George DeMass. See the Town 
-            of Oswego website for more information.
-            </p>
-    </div>
-
-    <button id="stopButton" onclick="localStorage.clear(); location.href='../freeexploration.html'">
-        <img src="../img/stop.png">
-    </button>
-
-    <button id="nextButton" onclick="location.href='../mapfornextbutton.html'">
-        <img src="../img/nextButton.png">
-    </button>
-    <div class="hero2">
-      <div class="music">
-        <div class="track">
-          <img src="../img/play.png" alt="play button" id = "playBtn">
-          <div id="waveform">
-          </div>
+                </div>
+            </center>
         </div>
-      </div>
-      </div>
+        <div class="controls">
+            <a onclick="localStorage.clear(); location.href='../freeexploration.html'" id="stopButton">
+                <img src="../img/stop.png" height="80" width="80" alt="Stop button">
+            </a>
+
+            <center>
+                <div class="hero">
+                    <div class="music">
+                        <div class="track">
+                            <img src="../img/play.png" alt="play button" id = "playBtn">
+                            <div id="waveform">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </center>
+
+            <a onclick="checkSiteOptionForNext()" id="nextButton">
+                <img src="../img/nextButton.png" height="90" width="90" alt="Next button">
+            </a>
+
+        </div>
     </div>
 
+    <button id="moreinfoButton" onclick="location.href='https://townofoswego.com/dr-walker/'">
+        More Info
+    </button>
+
+</div>
+<script src="../javascript.js"></script>
 <script>
+    var playBtn = document.getElementById('playBtn')
 
-var playBtn = document.getElementById('playBtn')
+    var wavesurfer = WaveSurfer.create({
+        container: '#waveform',
+        waveColor: 'white',
+        progressColor: 'orange',
+        barWidth: 4,
+        responsive: true,
+        height: 90,
+        barRadius: 4
+    })
 
-var wavesurfer = WaveSurfer.create({
-  container: '#waveform',
-  waveColor: 'white',
-  progressColor: 'orange',
-  barWidth: 4,
-  responsive: true,
-  height: 90,
-  barRadius: 4
-})
+    wavesurfer.load('../sounds/location2.mp3');
 
-wavesurfer.load('../sounds/location2.mp3');
+    playBtn.onclick = () => {
+        wavesurfer.playPause();
+        if(playBtn.src.includes("play.png")){
+            playBtn.src = "../img/pause.png"
+        }else{
+            playBtn.src = "../img/play.png"
+        }
+    }
 
-playBtn.onclick = () =>{
-  wavesurfer.playPause();
-  if(playBtn.src.includes("play.png")){
-    playBtn.src = "../img/pause.png"
-  }else{
-    playBtn.src = "../img/play.png"
-  }
-}
+    wavesurfer.on('finish', () => {
+        playBtn.src = "img/play.png";
+        wavesurfer.stop;
+    })
 
-wavesurfer.on('finish', () => {
-  playBtn.src = "../img/play.png";
-  wavesurfer.stop;
-})
+    var stopButton = document.getElementById('stopButton');
 
+    if (localStorage.getItem('followherjourney') === 'true') { // Hide stop button if followherjourney is true
+        stopButton.style.display = 'none';
+    }
+
+    function checkSiteOptionForNext(){
+        if (localStorage.getItem('followherjourney') === 'true') {
+            localStorage.setItem('index', '2');
+            window.location.href = "../followherjourney.html"
+        } else {
+            window.location.href = "../mapfornextbutton.html"
+        }
+    }
 
 </script>
-    <script src="../javascript.js"></script>
 </body>
 </html>
