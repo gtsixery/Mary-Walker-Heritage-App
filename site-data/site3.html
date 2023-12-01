@@ -1,138 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Site of Birthplace of Mary Walker</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="site-style.css">
     <script src="https://unpkg.com/wavesurfer.js"></script>
 </head>
 <body>
-
-    <div class="box1">
-      <div class="logo2">
-        <a href="../index.html"><img src="../images/Logo.jpg" ></a>
+<div class="header">
+    <div class="logo">
+        <a href="../index.html"><img src="../images/Logo.jpg"  alt="Logo"></a>
     </div>
+    <div class="site-name">
+        <h1>Site of Birthplace of Mary Walker</h1>
     </div>
+</div>
 
-   <center> <h1 class="sites">Site of Birthplace of Mary Walker</h1> </center>
-  
-    <center>
-    <div class="slideshow-container">
-    
-    <div class="mySlides fade">
+<div class="content">
+    <div class="inner-content">
+        <div class="text-and-slideshow">
+            <div class="text">
+                <p>A historic roadside marker on Bunker HIll Road is all that is left at the location of the
+                    family farm and birthplace of Dr. Mary Walker. She was born here on November 26, 1832. Her
+                    parents were abolitionists Alvah and Vesta Whitcomb Walker. She had four sisters: Aurora,
+                    Luna, Vesta, Cynthia, and one brother, Alvah Jr. As a child, her father encouraged his
+                    daughters to forgo corsets and wear pants under a short skirt for health reasons. She
+                    continued through her life to dress this way, and advocated for dress reform. In her later
+                    years, she dressed exclusively in pants and a jacket. Alvah started the first one room
+                    schoolhouse in the Town of Oswego and education was encouraged for the girls, which was unusual
+                    for the time. Alvah was interested in all kinds of subjects, including medicine, and allowed
+                    Mary to read the medical books in his library which inspired her interest in medicine.
+                    This was the only permanent home she had during her lifetime; she eventually inherited it and
+                    lived here until her death in 1919. The homestead burned in the 1930’s.</p>
+            </div>
+            <center>
+                <div class="slideshow">
 
-      <img src="../img/site3/Marker%20for%20Birthplace%20on%20Bunker%20HIll%20Road.JPG" height="300px" width="225px">
-      <div class="text">Oswego Historical Society</div>
-    </div>
-    
-    <div class="mySlides fade">
+                    <div class="mySlides">
+                        <img src="../img/site3/Marker%20for%20Birthplace%20on%20Bunker%20HIll%20Road.JPG" height="300" width="225">
+                        <div class="text">Birthplace marker on Bunker Hill Road</div>
+                    </div>
+                    <div class="mySlides">
+                        <img src="../img/site3/Mary&Vesta.jpg" height="300" width="207">
+                        <div class="text">Mary & Vesta Walker (Mary's Sister)</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="../img/site3/MarySkirt.jpg" height="300" width="197">
+                        <div class="text">Mary Walker in a skirt and cane</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="../img/site3/burnedHome.jpg" height="300" width="225">
+                        <div class="text">Mary's Home that burned down</div>
+                    </div>
 
-      <img src="../img/site3/Mary&Vesta.jpg" height="300px" width="207px">
-      <div class="text">Mary & Vesta Walker (Mary's Sister)</div>
-    </div>
-
-    <div class="mySlides fade">
-
-        <img src="../img/site3/MarySkirt.jpg" height="300px" width="197px">
-        <div class="text">Mary Walker in a skirt and cane</div>
-      </div>
-
-      <div class="mySlides fade">
-
-        <img src="../img/site3/burnedHome.jpg" height="300px" width="225px">
-        <div class="text">Mary's Home that burned down</div>
-      </div>
-    
-    </div>
-  </center>
-    <br>
-
-    <div style="text-align:center">
-        <button class ="button" onclick="changeSlide(0)" type="button">
-            <span class="dot"></span>
-        </button>
-        <button class ="button" onclick="changeSlide(1)" type="button">
-            <span class="dot"></span>
-        </button>
-        <button class ="button" onclick="changeSlide(2)" type="button">
-            <span class="dot"></span>
-        </button>
-        <button class ="button" onclick="changeSlide(3)" type="button">
-            <span class="dot"></span>
-        </button>
-
-    </div>
-
-    <div class="box2">
-        <p class="paragraph">
-            A historic roadside marker on Bunker HIll Road is all that is left at the location of the
-            family farm and birthplace of Dr. Mary Walker. She was born here on November 26, 1832. Her 
-            parents were abolitionists Alvah and Vesta Whitcomb Walker. She had four sisters: Aurora, 
-            Luna, Vesta, Cynthia, and one brother, Alvah Jr. As a child, her father encouraged his 
-            daughters to forgo corsets and wear pants under a short skirt for health reasons. She 
-            continued through her life to dress this way, and advocated for dress reform. In her later 
-            years, she dressed exclusively in pants and a jacket. Alvah started the first one room 
-            schoolhouse in the Town of Oswego and education was encouraged for the girls, which was unusual 
-            for the time. Alvah was interested in all kinds of subjects, including medicine, and allowed 
-            Mary to read the medical books in his library which inspired her interest in medicine. 
-            This was the only permanent home she had during her lifetime; she eventually inherited it and 
-            lived here until her death in 1919. The homestead burned in the 1930’s. 
-            </p>
-    </div>
-    <button id="stopButton" onclick="localStorage.clear(); location.href='../freeexploration.html'">
-        <img src="../img/stop.png">
-    </button>
-
-    <button id="nextButton" onclick="location.href='../mapfornextbutton.html'">
-        <img src="../img/nextButton.png">
-    </button>
-
-    <div class="hero3">
-      <div class="music">
-        <div class="track">
-          <img src="../img/play.png" alt="play button" id = "playBtn">
-          <div id="waveform">
-          </div>
+                    <div>
+                        <button class ="button" onclick="changeSlide(0)" type="button">
+                            <span class="dot"></span>
+                        </button>
+                        <button class ="button" onclick="changeSlide(1)" type="button">
+                            <span class="dot"></span>
+                        </button>
+                        <button class ="button" onclick="changeSlide(2)" type="button">
+                            <span class="dot"></span>
+                        </button>
+                        <button class ="button" onclick="changeSlide(3)" type="button">
+                            <span class="dot"></span>
+                        </button>
+                    </div>
+                </div>
+            </center>
         </div>
-      </div>
-      </div>
+
+        <div class="controls">
+            <a onclick="localStorage.clear(); location.href='../freeexploration.html'" id="stopButton">
+                <img src="../img/stop.png" height="80" width="80" alt="Stop button">
+            </a>
+
+            <center>
+                <div class="hero">
+                    <div class="music">
+                        <div class="track">
+                            <img src="../img/play.png" alt="play button" id = "playBtn">
+                            <div id="waveform">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </center>
+
+            <a onclick="checkSiteOptionForNext()" id="nextButton">
+                <img src="../img/nextButton.png" height="90" width="90" alt="Next button">
+            </a>
+
+        </div>
     </div>
-    
 
+    <button id="moreinfoButton" onclick="location.href='https://www.hmdb.org/m.asp?m=48678'">
+        More Info
+    </button>
+
+</div>
+<script src="../javascript.js"></script>
 <script>
+    var playBtn = document.getElementById('playBtn')
 
-var playBtn = document.getElementById('playBtn')
+    var wavesurfer = WaveSurfer.create({
+        container: '#waveform',
+        waveColor: 'white',
+        progressColor: 'orange',
+        barWidth: 4,
+        responsive: true,
+        height: 90,
+        barRadius: 4
+    })
 
-var wavesurfer = WaveSurfer.create({
-  container: '#waveform',
-  waveColor: 'white',
-  progressColor: 'orange',
-  barWidth: 4,
-  responsive: true,
-  height: 90,
-  barRadius: 4
-})
+    wavesurfer.load('../sounds/location3.mp3');
 
-wavesurfer.load('../sounds/location3.mp3');
+    playBtn.onclick = () => {
+        wavesurfer.playPause();
+        if(playBtn.src.includes("play.png")){
+            playBtn.src = "../img/pause.png"
+        }else{
+            playBtn.src = "../img/play.png"
+        }
+    }
 
-playBtn.onclick = () =>{
-  wavesurfer.playPause();
-  if(playBtn.src.includes("play.png")){
-    playBtn.src = "../img/pause.png"
-  }else{
-    playBtn.src = "../img/play.png"
-  }
-}
+    wavesurfer.on('finish', () => {
+        playBtn.src = "img/play.png";
+        wavesurfer.stop;
+    })
 
-wavesurfer.on('finish', () => {
-  playBtn.src = "../img/play.png";
-  wavesurfer.stop;
-})
+    var stopButton = document.getElementById('stopButton');
 
+    if (localStorage.getItem('followherjourney') === 'true') { // Hide stop button if followherjourney is true
+        stopButton.style.display = 'none';
+    }
+
+    function checkSiteOptionForNext(){
+        if (localStorage.getItem('followherjourney') === 'true') {
+            localStorage.setItem('index', '3');
+            window.location.href = "../followherjourney.html"
+        } else {
+            window.location.href = "../mapfornextbutton.html"
+        }
+    }
 
 </script>
-    <script src="../javascript.js"></script>
 </body>
 </html>
