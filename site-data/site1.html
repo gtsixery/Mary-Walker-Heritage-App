@@ -110,6 +110,12 @@
             wavesurfer.stop;
         })
 
+        var stopButton = document.getElementById('stopButton');
+
+        if (localStorage.getItem('followherjourney') === 'true') { // Hide stop button if followherjourney is true
+            stopButton.style.display = 'none';
+        }
+
         function checkSiteOptionForNext(){
             if (localStorage.getItem('followherjourney') === 'true') {
                 localStorage.setItem('index', '1');
