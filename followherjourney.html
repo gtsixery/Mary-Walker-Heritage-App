@@ -347,7 +347,6 @@
                     const userConfirmation = confirm(`Are you at ${address}? \n${confirmationText}`);
                     if (userConfirmation) {
                         window.location.href = sites[siteIndex].redirectLink;
-                        localStorage.clear();
                     }
                 })
                 .catch(error => console.error('Error:', error));
