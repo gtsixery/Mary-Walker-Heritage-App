@@ -1,84 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mary Walker Health Center at Suny Oswego</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="site-style.css">
     <script src="https://unpkg.com/wavesurfer.js"></script>
 </head>
 <body>
-
-<div class="box1">
-    <div class="logo2">
-        <a href="../index.html"><img src="../images/Logo.jpg" ></a>
+<div class="header">
+    <div class="logo">
+        <a href="../index.html"><img src="../images/Logo.jpg"  alt="Logo"></a>
+    </div>
+    <div class="site-name">
+        <h1>Mary Walker Health Center at Suny Oswego</h1>
     </div>
 </div>
 
-<center> <h1 class="sites">Mary Walker Health Center at SUNY Oswego</h1> </center>
-
-<center>
-    <div class="slideshow-container">
-
-        <div class="mySlides fade">
-
-            <img src="../img/site5/Marker%20at%20Walker%20Health.JPG" height="300px" width="225px">
-            <div class="text">Oswego Historical Society</div>
-        </div>
-
-        <div class="mySlides fade">
-
-            <img src="../img/site5/HealthCenter.JPG" height="300px" width="435px" >
-            <div class="text">Mary Walker Health Center</div>
-        </div>
-
-    </div>
-</center>
-
-<br>
-
-<div style="text-align:center">
-    <button class ="button" onclick="changeSlide(0)" type="button">
-        <span class="dot"></span>
-    </button>
-    <button class ="button" onclick="changeSlide(1)" type="button">
-        <span class="dot"></span>
-    </button>
-
-</div>
-
-
-<div class="box4">
-    <p>The Health Center at the State University of New York at Oswego is named the Dr. Mary Walker Center, and there is a historic marker a little west of it. The State University of New York at Oswego was founded in 1861 as the Oswego Primary Teachers' Training School by Edward Austin Sheldon and Mary would have known of it in her lifetime as the Oswego Normal School. The campus moved to its current lakeside location in 1913, and this health center was opened in 1965.
-        Mary attended her father’s school for an early education, then Falley Seminary in Fulton where she was trained as a teacher. She taught in Minetto NY to raise the tuition for medical school. She attended Central Medical College in Syracuse, NY for her medical degree, graduating in 1855, and was the only woman in her class. Elizabeth Blackwell, the first female doctor in the United States, had graduated in 1849 from Geneva Medical College. Blackwell was British born, making Mary Walker the first American woman doctor.
-        Dr. Mary Walker practiced briefly in Rome, NY after she married a fellow student, Albert Miller, but the practice failed and so did the marriage. Soon after that the Civil War broke out, she moved to Washington DC to try to work for the army, only succeeding after years of volunteering. After her imprisonment in a Confederate prisoner of war camp, her eyesight had been damaged by infection, so she could no longer practice surgery. In the Town of Oswego, she ministered to her neighbors between her trips to campaign for social justice.
-
-
-    </p>
-</div>
-<button id="stopButton" onclick="localStorage.clear(); location.href='../freeexploration.html'">
-    <img src="../img/stop.png">
-</button>
-
-<button id="nextButton" onclick="location.href='../mapfornextbutton.html'">
-    <img src="../img/nextButton.png">
-</button>
-
-<div class="hero5">
-    <div class="music">
-        <div class="track">
-            <img src="../img/play.png" alt="play button" id = "playBtn">
-            <div id="waveform">
+<div class="content">
+    <div class="inner-content">
+        <div class="text-and-slideshow">
+            <div class="text">
+                <p>The Health Center at the State University of New York at Oswego is named the Dr. Mary Walker Center, and there is a historic marker a little west of it. The State University of New York at Oswego was founded in 1861 as the Oswego Primary Teachers' Training School by Edward Austin Sheldon and Mary would have known of it in her lifetime as the Oswego Normal School. The campus moved to its current lakeside location in 1913, and this health center was opened in 1965.
+                    Mary attended her father’s school for an early education, then Falley Seminary in Fulton where she was trained as a teacher. She taught in Minetto NY to raise the tuition for medical school. She attended Central Medical College in Syracuse, NY for her medical degree, graduating in 1855, and was the only woman in her class. Elizabeth Blackwell, the first female doctor in the United States, had graduated in 1849 from Geneva Medical College. Blackwell was British born, making Mary Walker the first American woman doctor.
+                    Dr. Mary Walker practiced briefly in Rome, NY after she married a fellow student, Albert Miller, but the practice failed and so did the marriage. Soon after that the Civil War broke out, she moved to Washington DC to try to work for the army, only succeeding after years of volunteering. After her imprisonment in a Confederate prisoner of war camp, her eyesight had been damaged by infection, so she could no longer practice surgery. In the Town of Oswego, she ministered to her neighbors between her trips to campaign for social justice.</p>
             </div>
+            <center>
+                <div class="slideshow">
+
+                    <div class="mySlides">
+                        <img src="../img/site5/Marker%20at%20Walker%20Health.JPG" height="300" width="225">
+                        <div class="text">Marker at Walker Health Center</div>
+                    </div>
+                    <div class="mySlides">
+                        <img src="../img/site5/HealthCenter.JPG" height="300" width="400" >
+                        <div class="text">Mary Walker Health Center</div>
+                    </div>
+
+                    <div>
+                        <button class ="button" onclick="changeSlide(0)" type="button">
+                            <span class="dot"></span>
+                        </button>
+                        <button class ="button" onclick="changeSlide(1)" type="button">
+                            <span class="dot"></span>
+                        </button>
+                    </div>
+                </div>
+            </center>
+        </div>
+
+        <div class="controls">
+            <a onclick="localStorage.clear(); location.href='../freeexploration.html'" id="stopButton">
+                <img src="../img/stop.png" height="80" width="80" alt="Stop button">
+            </a>
+
+            <center>
+                <div class="hero">
+                    <div class="music">
+                        <div class="track">
+                            <img src="../img/play.png" alt="play button" id = "playBtn">
+                            <div id="waveform">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </center>
+
+            <a onclick="checkSiteOptionForNext()" id="nextButton">
+                <img src="../img/nextButton.png" height="90" width="90" alt="Next button">
+            </a>
+
         </div>
     </div>
-</div>
-</div>
 
+    <button id="moreinfoButton" onclick="location.href='https://www.hmdb.org/m.asp?m=109202/'">
+        More Info
+    </button>
 
+</div>
+<script src="../javascript.js"></script>
 <script>
-
     var playBtn = document.getElementById('playBtn')
 
     var wavesurfer = WaveSurfer.create({
@@ -93,7 +96,7 @@
 
     wavesurfer.load('../sounds/location5.mp3');
 
-    playBtn.onclick = () =>{
+    playBtn.onclick = () => {
         wavesurfer.playPause();
         if(playBtn.src.includes("play.png")){
             playBtn.src = "../img/pause.png"
@@ -103,12 +106,25 @@
     }
 
     wavesurfer.on('finish', () => {
-        playBtn.src = "../img/play.png";
+        playBtn.src = "img/play.png";
         wavesurfer.stop;
     })
 
+    var stopButton = document.getElementById('stopButton');
+
+    if (localStorage.getItem('followherjourney') === 'true') { // Hide stop button if followherjourney is true
+        stopButton.style.display = 'none';
+    }
+
+    function checkSiteOptionForNext(){
+        if (localStorage.getItem('followherjourney') === 'true') {
+            localStorage.setItem('index', '5');
+            window.location.href = "../followherjourney.html"
+        } else {
+            window.location.href = "../mapfornextbutton.html"
+        }
+    }
 
 </script>
-<script src="../javascript.js"></script>
 </body>
 </html>
