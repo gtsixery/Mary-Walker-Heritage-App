@@ -30,6 +30,7 @@
             flex-direction:column;
             margin-left: 10px;
             gap: 70px;
+            z-index: 5;
         }
 
         .sitesScroll img{
@@ -38,6 +39,8 @@
             margin-right: 100px;
             width: 150px;
             height: 150px;
+            filter: blur(2.5px);
+            box-shadow: 0 0 10px 5px rgba(0,0,0,0.3);
         }
 
         .logo img{
@@ -136,15 +139,15 @@
 <div class="banner2" id="banner2">
 
     <div class="sitesScroll">
-        <a> <img src="button-images/Oswego Town Hall.webp" ></a>
-        <a> <img src="button-images/Town of Oswego Historical Society.webp"></a>
-        <a> <img src="button-images/Marker for Birthplace on Bunker HIll Road.webp"></a>
-        <a> <img src="button-images/entrance.webp"></a>
-        <a> <img src="button-images/HealthCenter.webp"></a>
-        <a> <img src="button-images/Mural on wall of Riversend Bookstore on W. Bridge near W. First.webp"></a>
-        <a> <img src="button-images/CityHall.webp"></a>
-        <a> <img src="button-images/fortOntario.webp"></a>
-        <a> <img src="button-images/museum.webp"></a>
+        <img id="0" src="button-images/Oswego Town Hall.webp">
+        <img id="1" src="button-images/Town of Oswego Historical Society.webp">
+        <img id="2" src="button-images/Marker for Birthplace on Bunker HIll Road.webp">
+        <img id="3" src="button-images/entrance.webp">
+        <img id="4" src="button-images/HealthCenter.webp">
+        <img id="5" src="button-images/Mural on wall of Riversend Bookstore on W. Bridge near W. First.webp">
+        <img id="6" src="button-images/CityHall.webp">
+        <img id="7" src="button-images/fortOntario.webp">
+        <img id="8" src="button-images/museum.webp">
     </div>
 
 </div>
@@ -159,6 +162,7 @@
     window.addEventListener('load', setBannerHeight);
     window.addEventListener('resize', setBannerHeight);
 
+    // map creation
     mapboxgl.accessToken = 'pk.eyJ1Ijoib3N3ZWdvdG91cnN3ZWJhcHAiLCJhIjoiY2xuZTU0eTdxMGFlbzJrc2UyNGQ0eXJnNSJ9.1bNTRWmRobVRG96ohJEeOg';
 
     const map = new mapboxgl.Map({
@@ -301,6 +305,10 @@
 
     // get the index of the selected site from local storage
     let siteIndex = JSON.parse(localStorage.getItem('index'));
+
+    // This is where the
+    let imgClassIndex = document.getElementById(siteIndex);
+    imgClassIndex.style.filter = 'blur(0)';
 
     geolocate.on('geolocate', function(e) {
         const userLocation = [e.coords.longitude, e.coords.latitude];
