@@ -12,6 +12,12 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
+
+        * {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans',
+            Arial, sans-serif;
+        }
+
         body {
             margin: 0;
         }
@@ -41,6 +47,21 @@
             height: 150px;
             filter: blur(2.5px);
             box-shadow: 0 0 10px 5px rgba(0,0,0,0.3);
+        }
+
+        #description {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 20;
+            transition: opacity 7s ease-in-out;
         }
 
         .logo img{
@@ -139,17 +160,17 @@
 <div class="banner2" id="banner2">
 
     <div class="sitesScroll">
-        <img id="0" src="button-images/Oswego Town Hall.webp">
-        <img id="1" src="button-images/Town of Oswego Historical Society.webp">
-        <img id="2" src="button-images/Marker for Birthplace on Bunker HIll Road.webp">
-        <img id="3" src="button-images/entrance.webp">
-        <img id="4" src="button-images/HealthCenter.webp">
-        <img id="5" src="button-images/Mural on wall of Riversend Bookstore on W. Bridge near W. First.webp">
-        <img id="6" src="button-images/CityHall.webp">
-        <img id="7" src="button-images/fortOntario.webp">
-        <img id="8" src="button-images/museum.webp">
+        <img id="0" src="button-images/Oswego Town Hall.webp" onclick="description('0')">
+        <img id="1" src="button-images/Town of Oswego Historical Society.webp" onclick="description('1')">
+        <img id="2" src="button-images/Marker for Birthplace on Bunker HIll Road.webp" onclick="description('2')">
+        <img id="3" src="button-images/entrance.webp" onclick="description('3')">
+        <img id="4" src="button-images/HealthCenter.webp" onclick="description('4')">
+        <img id="5" src="button-images/Mural on wall of Riversend Bookstore on W. Bridge near W. First.webp" onclick="description('5')">
+        <img id="6" src="button-images/CityHall.webp" onclick="description('6')">
+        <img id="7" src="button-images/fortOntario.webp" onclick="description('7')">
+        <img id="8" src="button-images/museum.webp" onclick="description('8')">
     </div>
-
+    <div id="description"></div>
 </div>
 
 <script>
@@ -245,6 +266,24 @@
             redirectLink: 'site-data/site9.html'
         }
     ]
+
+    function description(id) {
+        var description = document.getElementById('description');
+        description.innerHTML = sites[id].name;
+        description.style.display = 'block';
+
+        requestAnimationFrame(function() {
+            description.style.opacity = 0;
+        });
+
+        // to hide the description after fading away
+        setTimeout(function() {
+            description.style.display = 'none';
+
+            // Reset opacity for future displays
+            description.style.opacity = 1;
+        }, 7000);
+    }
 
     sites.forEach(({ name, color, lngLat }) => {
         // create the popup
