@@ -123,8 +123,9 @@
 
     function checkSiteOptionForNext(){
         if (localStorage.getItem('followherjourney') === 'true') {
-            localStorage.setItem('index', '1');
-            window.location.href = "../followherjourney.html"
+            window.alert("Awesome! You've reached the end of your tour.");
+            localStorage.clear();
+            window.location.href = "../index.html"
         } else {
             window.location.href = "../mapfornextbutton.html"
         }
