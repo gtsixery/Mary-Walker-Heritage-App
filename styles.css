@@ -205,14 +205,16 @@ button{
 
 #stopButton{
   position:absolute;
-  left: 45px;
-  scale: 90%;
-  bottom: 20px;
+  padding-left: 3%;
+  scale: 70%;
+
+  top: 84%;
 }
 #nextButton{
   position: absolute;
-  right: 40px;
-  bottom: 20px;
+  left: 75%;
+  scale: 20%;
+  top: 59.7%;
 
 }
 
@@ -497,22 +499,24 @@ to {opacity: 1}
 }
 
 /* On smaller screens, decrease text size */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 300px) {
 .text {font-size: 11px}
 }
 
 .hero{
 position: absolute ;
 width: 70%;
-top: 84%;
-left: 25%;
+top: 65%;
+left: 5%;
+
 }
 
 .hero2{
 position: absolute;
-width: 83%;
-top: 65%;
+width: 70%;
 
+top: 55%; 
+left: 5%;
 
 }
 
