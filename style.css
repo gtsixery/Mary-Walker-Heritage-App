@@ -123,7 +123,7 @@ nav{
     top: 45%;
     transform: translateY(-50%);
     text-align: center ;
-    color:#fff;
+    color: #cbc1c1;
 }
 .content h1{
     font-size: 65px;
@@ -311,6 +311,7 @@ section .cards .text-card .learn-card a{
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans',
         Arial, sans-serif;
         font-size: 40px;
+
     }
 
     .scrolldown{ /* added */
@@ -319,6 +320,7 @@ section .cards .text-card .learn-card a{
 
     section h1{
         font-size: 60px;
+
     }
 
     section .cards{
@@ -334,6 +336,7 @@ section .cards .text-card .learn-card a{
     .logo h1{
         display: none;
     }
+
 
     section .cards{
         width: 350px;
@@ -380,6 +383,7 @@ section2{
 section2 h1{
     font-size: 20px;
     text-transform: uppercase;
+
 }
 
 .scrolldown{
