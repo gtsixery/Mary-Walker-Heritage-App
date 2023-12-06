@@ -29,6 +29,7 @@ nav{
 .logo h1 {
     color: white;
     font-size: 1.5rem;
+    width: 150px;
     font-weight: bold;
     font-style: normal;
     /*padding: 0 2rem;*/
@@ -127,6 +128,7 @@ nav{
 }
 .content h1{
     font-size: 65px;
+
     font-family: "Tiempos Fine Bold", Georgia, serif;
     margin-top: 80px ;
 
@@ -247,7 +249,7 @@ section h2{
 h4{
     padding-top: 5px;
     padding-bottom: 5px;
-    font-size: 13px;
+    font-size: 15px;
     font-family: "Tiempos Fine Bold", Georgia, serif;
     text-align: center;
     text-transform: uppercase;
